@@ -1,0 +1,77 @@
+:root {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #10233f;
+  background: whitesmoke;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  --azul: #102b50;
+  --azul-claro: #234a78;
+  --texto-suave: #637187;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; min-height: 100vh; background: whitesmoke; }
+button, a { font: inherit; }
+a { color: inherit; }
+.site { min-height: 100vh; display: flex; flex-direction: column; }
+.topo { min-height: 76px; padding: 0 max(6vw, calc((100vw - 1180px) / 2)); display: flex; align-items: center; justify-content: space-between; gap: 20px; color: whitesmoke; background: var(--azul); }
+.topo p { margin: 0; color: #d6dfeb; font-size: .94rem; }
+.marca { color: whitesmoke; text-decoration: none; font-size: 1.45rem; line-height: 1; font-weight: 800; letter-spacing: -.06em; }
+.conteudo { width: min(1180px, 88%); margin: 0 auto; flex: 1; }
+.introducao { padding: 76px 0 52px; }
+.sobrelinha { margin: 0 0 10px; color: var(--azul-claro); font-size: .72rem; font-weight: 800; letter-spacing: .13em; }
+.introducao h1 { margin: 0; color: var(--azul); font-size: clamp(2.2rem, 5vw, 3.5rem); letter-spacing: -.055em; line-height: 1.08; }
+.introducao > p:last-child { margin: 16px 0 0; color: var(--texto-suave); font-size: 1.05rem; }
+.listagem { padding: 0 0 70px; }
+.titulo-listagem { display: flex; align-items: end; justify-content: space-between; gap: 18px; }
+.titulo-listagem h2 { margin: 0; color: var(--azul); font-size: 1.8rem; letter-spacing: -.04em; }
+.contador { padding: 8px 12px; border-radius: 999px; color: var(--azul); background: #e4eaf1; font-size: .83rem; font-weight: 700; }
+.filtros { display: flex; gap: 10px; flex-wrap: wrap; margin: 24px 0; }
+.filtro, .paginacao button { border: 1px solid #cbd4df; border-radius: 8px; padding: 10px 16px; color: var(--azul); background: transparent; font-weight: 650; cursor: pointer; transition: background .18s, color .18s, border-color .18s; }
+.filtro:hover, .paginacao button:not(:disabled):hover { border-color: var(--azul); background: #e7ecf2; }
+.filtro.ativo { border-color: var(--azul); color: whitesmoke; background: var(--azul); }
+.filtro:focus-visible, .paginacao button:focus-visible, .redes-sociais a:focus-visible { outline: 3px solid #86a9d2; outline-offset: 3px; }
+.grade-imoveis { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.cartao-imovel { overflow: hidden; border: 1px solid #e2e6eb; border-radius: 14px; background: #fff; box-shadow: 0 8px 24px #102b500d; }
+.imagem-imovel { height: 220px; overflow: hidden; background: #e3e8ef; }
+.imagem-imovel img { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform .3s; }
+.cartao-imovel:hover .imagem-imovel img { transform: scale(1.035); }
+.detalhes-imovel { padding: 19px 20px 20px; }
+.tipo-imovel { display: inline-block; margin-bottom: 9px; color: var(--azul-claro); font-size: .75rem; font-weight: 750; }
+.detalhes-imovel h3 { margin: 0; color: var(--azul); font-size: 1.12rem; }
+.descricao { min-height: 48px; margin: 9px 0 17px; color: var(--texto-suave); font-size: .92rem; line-height: 1.55; }
+.preco { margin: 0; color: var(--azul); font-size: 1.1rem; font-weight: 800; }
+.paginacao { display: flex; align-items: center; justify-content: center; gap: 22px; margin-top: 30px; color: var(--texto-suave); font-size: .9rem; }
+.paginacao button { padding: 9px 13px; }
+.paginacao button:disabled { cursor: not-allowed; opacity: .45; }
+.rodape { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 28px max(6vw, calc((100vw - 1180px) / 2)); color: whitesmoke; background: var(--azul); }
+.marca-rodape { font-size: 1.2rem; }
+.rodape p { margin: 0; color: #d6dfeb; font-size: .88rem; }
+.redes-sociais { display: flex; gap: 17px; }
+.redes-sociais a { color: #e1e8f1; font-size: .88rem; text-decoration: none; }
+.redes-sociais a:hover { color: white; text-decoration: underline; }
+
+@media (max-width: 850px) {
+  .grade-imoveis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .imagem-imovel { height: 200px; }
+  .rodape { flex-wrap: wrap; }
+}
+@media (max-width: 560px) {
+  .topo { min-height: 68px; padding: 0 6%; }
+  .topo p { max-width: 165px; text-align: right; font-size: .78rem; }
+  .conteudo { width: 88%; }
+  .introducao { padding: 52px 0 38px; }
+  .introducao > p:last-child { font-size: .95rem; }
+  .titulo-listagem h2 { font-size: 1.55rem; }
+  .filtros { gap: 8px; }
+  .filtro { padding: 9px 12px; font-size: .88rem; }
+  .grade-imoveis { grid-template-columns: 1fr; gap: 17px; }
+  .imagem-imovel { height: 230px; }
+  .paginacao { gap: 10px; font-size: .8rem; }
+  .paginacao button { padding: 9px; font-size: .82rem; }
+  .rodape { flex-direction: column; align-items: flex-start; padding: 26px 6%; gap: 15px; }
+  .redes-sociais { flex-wrap: wrap; gap: 15px; }
+}
