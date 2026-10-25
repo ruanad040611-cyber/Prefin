@@ -1,5 +1,0 @@
-O site deve ter:
-
-O que é o site?
-footer
-barra de filtros
